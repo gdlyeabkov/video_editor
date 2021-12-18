@@ -1,0 +1,28 @@
+﻿<Window x:Class="Videditor.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Videditor"
+        mc:Ignorable="d"
+        Title="Начальной экран видео редактора" Height="350" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <StackPanel Background="LightGray" Grid.Row="0" Grid.Column="0">
+            <Image Width="200" Margin="15, 15, 15, 15">
+                <Image.Source>
+                    <BitmapImage UriSource="https://cdn2.iconfinder.com/data/icons/flat-pack-1/64/Watch_TV-256.png" />
+                </Image.Source>
+            </Image>
+            <StackPanel  HorizontalAlignment="Center" Orientation="Horizontal" MouseUp="CreateProjectHandler">
+                <TextBlock Foreground="White" Margin="15, 15, 15, 15" Text="➕" />
+                <TextBlock Foreground="White" Margin="15, 15, 15, 15" Text="Создать проект" />
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</Window>
