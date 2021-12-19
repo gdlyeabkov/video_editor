@@ -1,5 +1,7 @@
-﻿using System;
+﻿using Microsoft.Win32;
+using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -21,14 +23,14 @@ namespace Videditor
     {
 
         public bool footageIsStart = true;
-        public bool footageIsPause = false;
+        public bool footageIsPause = true;
 
         public VideoEditor()
         {
             InitializeComponent();
 
             footage.Play();
-            // footage.Pause();
+            footage.Pause();
 
         }
 
@@ -80,6 +82,26 @@ namespace Videditor
             int footagePercent = footage.NaturalDuration.TimeSpan.Seconds / 99;
             int needFootagePosition = footagePercent * ((int)(currentCursorPosition / timelinePercent));
             footage.Position = TimeSpan.FromSeconds(((int)(currentCursorPosition)));
+        }
+
+        private void RenderVideoHandler(object sender, RoutedEventArgs e)
+        {
+            SaveFileDialog sfd = new SaveFileDialog();
+            sfd.FileName = "Новое видео";
+            sfd.DefaultExt = ".mp4";
+            sfd.Filter = "MP4 (.mp4)|*.mp4";
+            bool? res = sfd.ShowDialog();
+            if (res != false)
+            {
+
+                using (Stream s = File.Open(sfd.FileName, FileMode.OpenOrCreate))
+                {
+                    using (StreamWriter sw = new StreamWriter(s))
+                    {
+                        sw.Write("rendered video");
+                    }
+                }
+            }
         }
     }
 }
