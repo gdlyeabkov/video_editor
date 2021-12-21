@@ -24,6 +24,8 @@ namespace Videditor
 
         public bool footageIsStart = true;
         public bool footageIsPause = true;
+        public int markerStart = 0;
+        public int markerEnd = 0;
 
         public VideoEditor()
         {
@@ -31,7 +33,7 @@ namespace Videditor
 
             footage.Play();
             footage.Pause();
-
+            markerEnd = 1500;
         }
 
         private void StartOrStopFootageHandler(object sender, RoutedEventArgs e)
@@ -101,6 +103,36 @@ namespace Videditor
                         sw.Write("rendered video");
                     }
                 }
+            }
+        }
+
+        private void SetMarkersHandler(object sender, RoutedEventArgs e)
+        {
+            Canvas.SetLeft(endTimelineMarker, timeline.ActualWidth - endTimelineMarker.Width);
+            Canvas.SetLeft(outsideEndArea, timeline.ActualWidth);
+            // Canvas.SetRight(outsideEndArea, timeline.ActualWidth);
+        }
+
+        private void SetStartMarkerHandler(object sender, MouseEventArgs e)
+        {
+            Rectangle marker = ((Rectangle)(sender));
+            if (e.LeftButton == MouseButtonState.Pressed)
+            {
+                Canvas.SetLeft(marker, e.GetPosition(timeline).X - marker.Width / 2);
+                markerStart = ((int)(Canvas.GetLeft(marker)));
+                outsideStartArea.Width = e.GetPosition(timeline).X;
+            }
+        }
+
+        private void SetEndMarkerHandler(object sender, MouseEventArgs e)
+        {
+            Rectangle marker = ((Rectangle)(sender));
+            if (e.LeftButton == MouseButtonState.Pressed)
+            {
+                Canvas.SetLeft(marker, e.GetPosition(timeline).X - marker.Width / 2);
+                markerEnd = ((int)(Canvas.GetLeft(marker)));
+                Canvas.SetLeft(outsideEndArea, e.GetPosition(timeline).X);
+                outsideEndArea.Width = timeline.ActualWidth - e.GetPosition(timeline).X;
             }
         }
     }

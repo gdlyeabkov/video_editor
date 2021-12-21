@@ -24,9 +24,21 @@
 
             </StackPanel>
             -->
-            <Canvas x:Name="timeline" Height="100">
+            <Canvas x:Name="timeline" Height="100" Loaded="SetMarkersHandler">
                 <Canvas.Children>
+                    <Rectangle x:Name="outsideStartArea" Fill="Black" Canvas.Left="0"  Height="100" Width="0"/>
+                    <Rectangle Width="15" Height="15" MouseMove="SetStartMarkerHandler">
+                        <Rectangle.Fill>
+                            <ImageBrush ImageSource="https://cdn3.iconfinder.com/data/icons/neutro-interface/32/next-256.png" />
+                        </Rectangle.Fill>
+                    </Rectangle>
                     <Line x:Name="timelineCursor" Stroke="Black" X1="50" Y1="0" X2="50" Y2="100" />
+                    <Rectangle x:Name="endTimelineMarker" Canvas.Left="1500" Width="15" Height="15" MouseMove="SetEndMarkerHandler">
+                        <Rectangle.Fill>
+                            <ImageBrush  ImageSource="https://cdn3.iconfinder.com/data/icons/neutro-interface/32/next-256.png" />
+                        </Rectangle.Fill>
+                    </Rectangle>
+                    <Rectangle x:Name="outsideEndArea" Fill="Black" Canvas.Left="1500" Height="100" />
                 </Canvas.Children>
             </Canvas>
         </StackPanel>
