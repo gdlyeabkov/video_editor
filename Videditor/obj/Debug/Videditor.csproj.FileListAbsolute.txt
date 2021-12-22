@@ -16,3 +16,7 @@ C:\wpf_projects\Videditor\Videditor\obj\Debug\Videditor.csproj.GenerateResource.
 C:\wpf_projects\Videditor\Videditor\obj\Debug\Videditor.csproj.CoreCompileInputs.cache
 C:\wpf_projects\Videditor\Videditor\obj\Debug\Videditor.exe
 C:\wpf_projects\Videditor\Videditor\obj\Debug\Videditor.pdb
+C:\wpf_projects\Videditor\Videditor\obj\Debug\Dialogs\SetDurationDialog.g.cs
+C:\wpf_projects\Videditor\Videditor\obj\Debug\Dialogs\SetDurationDialog.baml
+C:\wpf_projects\Videditor\Videditor\obj\Debug\Dialogs\QualityDialog.g.cs
+C:\wpf_projects\Videditor\Videditor\obj\Debug\Dialogs\QualityDialog.baml

@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 C:\wpf_projects\Videditor\Videditor\App.xaml
-21943537865
+4177818032
 
-61129870809
-13-1310406943
-MainWindow.xaml;VideoEditor.xaml;
+8549327738
+14-1643453872
+Dialogs\QualityDialog.xaml;Dialogs\SetDurationDialog.xaml;MainWindow.xaml;VideoEditor.xaml;
 
 False
 
